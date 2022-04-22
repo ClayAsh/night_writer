@@ -1,7 +1,6 @@
-#runner file
 require_relative 'reader'
 
-english_reader = Reader.new(ARGV[0], ARGV[1])
+writer = Writer.new(ARGV[0], ARGV[1])
 
 
 # message = ARGV[0]
