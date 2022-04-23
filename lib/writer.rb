@@ -1,37 +1,32 @@
 
 class Writer
-  attr_accessor :english, :braille
-  def initialize(english_file_path, braille_file_path)
-    @english = File.open(english_file_path, 'r')
-    @braille = File.open(braille_file_path, 'w')
+  attr_accessor :english,
+                :braille
+  def initialize(english, braille)
+    @english = english #ARGV[0]
+    @braille = braille #ARGV[1]
   end
 
-  # def clean_data(file_path)
-  # #undefined method `strip' for #<File:message.txt>
-  #   file_path.strip
-  # end
-
-  def read_write(english_file_path, braille_file_path)
-    english_read = @english.read
-    braille_write = english_read.upcase #translate
-    braille_file_path.write(braille_write)
+  def read_write(english, braille)
+    english_file = File.open(english)
+    english_read = english_file.read
+    braille_write = english_read.upcase
+    braille_file = File.write(braille, braille_write)
   end
 
   def character_counter(file_path)
-    # clean_file_path = clean_data(file_path)
-    count = 0
-    file_path.each_char do |eng|
-      count += eng.chomp.length
-    end
-    count
+    character_count = File.read(file_path).length
+    return character_count
   end
 
-  def welcome_message
-    p "Created #{"braille.txt"} containing #{character_counter("braille.txt")} characters."
+#braille should return file name, not file object
+  def welcome_message(file_path)
+    p "Created #{file_path} containing #{character_counter("message.txt")} characters."
   end
 end
 
+#all file paths will be ARGV
 
-writer = Writer.new("message.txt", "braille.txt")
+writer = Writer.new('./message.txt', './braille.txt')
 writer.read_write(writer.english, writer.braille)
-writer.welcome_message
+writer.welcome_message('braille.txt')
