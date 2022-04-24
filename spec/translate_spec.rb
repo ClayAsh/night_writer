@@ -1,4 +1,4 @@
-require './lib/writer'
+# require './lib/writer'
 require './lib/translate'
 
 RSpec.describe Translate do
