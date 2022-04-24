@@ -1,21 +1,23 @@
-#require_relative './translate'
+require_relative './translate'
 
-class Writer #< Translate
+class Writer < Translate
   attr_accessor :english,
                 :braille
   def initialize(english, braille)
     @english = english #ARGV[0]
     @braille = braille #ARGV[1]
+    super()
   end
 
   def read_write(english, braille)
     english_file = File.open(english)
     english_read = english_file.read
+
     braille_write = english_to_braille(english_read)
-    # write_braille = transpose_braille(braille_write)
+    write_braille = transpose_braille(braille_write)
     # braille_file = File.write(braille, write_braille)
-    braille_write = english_read.upcase
-    braille_file = File.write(braille, braille_write)
+    # braille_write = english_read.upcase
+    braille_file = File.write(braille, write_braille)
   end
 
   def character_counter(file_path)
