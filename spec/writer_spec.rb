@@ -13,7 +13,7 @@ RSpec.describe Writer do
     File.write('./message.txt', "hello world")
     writer.read_write('./message.txt', './braille.txt')
     expected = File.read('./braille.txt')
-    expect(expected).to eq("HELLO WORLD")
+    expect(expected).to eq( "O.O.O.O.O....OO.O.O.OO\nOO.OO.O..O..OO.OOOO..O\n....O.O.O....OO.O.O...")
   end
 
   it 'can count characters' do
