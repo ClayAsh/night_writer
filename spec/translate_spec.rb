@@ -7,6 +7,11 @@ RSpec.describe Translate do
     expect(translate).to be_a(Translate)
   end
 
+  it 'has attributes' do
+    translate = Translate.new
+    expect(translate.alphabet).to be_a(Hash)
+  end
+
   it 'can translate english char to braille' do
     translate = Translate.new
     expect(translate.char_to_braille("h")).to eq(["O.", "OO", ".."])
