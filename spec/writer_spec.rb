@@ -27,7 +27,7 @@ RSpec.describe Writer do
 
   it 'can print welcome message' do
     writer = Writer.new('./message.txt', './braille.txt')
-    expect(writer.welcome_message('braille.txt')).to eq("Created braille.txt containing 11 characters.")
+    expect(writer.welcome_message('braille.txt')).to eq("Created #{writer.braille} containing #{writer.character_counter(writer.english)} characters.")
   end
 
 end
