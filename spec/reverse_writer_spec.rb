@@ -13,7 +13,7 @@ RSpec.describe ReverseWriter do
     File.write('./braille.txt', "O.O.O.O.O....OO.O.O.OO\nOO.OO.O..O..OO.OOOO..O\n....O.O.O....OO.O.O...")
     reverse_writer.read_write('./braille.txt', './english.txt')
     expected = File.read('./english.txt')
-    expect(expected).to eq( "hello world")
+    expect(expected).to eq("hello world")
   end
 
   it 'can count characters' do
@@ -27,7 +27,8 @@ RSpec.describe ReverseWriter do
 
   it 'can print welcome message' do
     reverse_writer = ReverseWriter.new('./braille.txt', './english.txt')
-    expect(reverse_writer.welcome_message('english.txt')).to eq("Created english.txt containing 11 characters.")
+    expected = "Created #{reverse_writer.english} containing #{reverse_writer.character_counter(reverse_writer.english)} characters."
+    expect(reverse_writer.welcome_message('english.txt')).to eq(expected)
   end
 
 end

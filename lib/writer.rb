@@ -28,8 +28,6 @@ class Writer < Translate
   end
 end
 
-#all file paths will be ARGV
-
 writer = Writer.new('./message.txt', './braille.txt')
 writer.read_write(writer.english, writer.braille)
 writer.welcome_message('braille.txt')

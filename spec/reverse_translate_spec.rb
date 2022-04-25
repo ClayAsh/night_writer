@@ -1,4 +1,4 @@
-# require './lib/braille_dictionary'
+
 require './lib/reverse_translate'
 
 RSpec.describe ReverseTranslate do
@@ -32,7 +32,7 @@ RSpec.describe ReverseTranslate do
     expect(reverse_translate.cut_two_dots("O...O.\nOO...O\n......")).to eq("..O.\n...O\n....")
   end
 
-  it 'can reverse words with spaces' do
+  it 'can reverse translate words' do
     reverse_translate = ReverseTranslate.new
     expect(reverse_translate.reverse_transpose("O...O.\nOO...O\n......")).to eq("h e")
   end
