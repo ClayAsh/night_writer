@@ -26,4 +26,9 @@ RSpec.describe Translate do
     translate = Translate.new
     expect(translate.transpose_braille([["O.", "OO", ".."], ["O.", ".O", ".."]])).to eq("O.O.\nOO.O\n....")
   end
+
+  it 'can transpose odd numbers of characters' do
+    translate = Translate.new
+    expect(translate.transpose_braille([["O.", "OO", ".."], ['..','..','..'], ["O.", ".O", ".."]])).to eq("O...O.\nOO...O\n......")
+  end
 end
