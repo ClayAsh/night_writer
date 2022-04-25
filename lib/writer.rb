@@ -4,8 +4,8 @@ class Writer < Translate
   attr_accessor :english,
                 :braille
   def initialize(english, braille)
-    @english = english #ARGV[0]
-    @braille = braille #ARGV[1]
+    @english = english
+    @braille = braille
     super()
   end
 
@@ -15,8 +15,6 @@ class Writer < Translate
 
     braille_write = english_to_braille(english_read)
     write_braille = transpose_braille(braille_write)
-    # braille_file = File.write(braille, write_braille)
-    # braille_write = english_read.upcase
     braille_file = File.write(braille, write_braille)
   end
 
@@ -25,9 +23,8 @@ class Writer < Translate
     return character_count
   end
 
-#braille should return file name, not file object
   def welcome_message(file_path)
-    p "Created #{file_path} containing #{character_counter("message.txt")} characters."
+    p "Created #{@braille} containing #{character_counter(@english)} characters."
   end
 end
 
