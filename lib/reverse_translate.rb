@@ -1,6 +1,6 @@
-require_relative 'english_dictionary'
+require_relative 'braille_dictionary'
 
-class ReverseTranslate < EnglishDictionary
+class ReverseTranslate < BrailleDictionary
 
   def braille_to_char(in_char)
     @alphabet.invert[in_char]
