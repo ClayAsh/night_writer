@@ -12,7 +12,6 @@ class Writer < Translate
   def read_write(english, braille)
     english_file = File.open(english)
     english_read = english_file.read
-
     braille_write = english_to_braille(english_read)
     write_braille = transpose_braille(braille_write)
     braille_file = File.write(braille, write_braille)
@@ -26,8 +25,10 @@ class Writer < Translate
   def welcome_message(file_path)
     p "Created #{@braille} containing #{character_counter(@english)} characters."
   end
-end
 
-writer = Writer.new('./message.txt', './braille.txt')
-writer.read_write(writer.english, writer.braille)
-writer.welcome_message('braille.txt')
+  def start
+    writer = Writer.new('message.txt', 'braille.txt')
+    writer.read_write(writer.english, writer.braille)
+    writer.welcome_message(ARGV[1])
+  end
+end
