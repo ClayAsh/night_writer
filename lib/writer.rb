@@ -31,4 +31,4 @@ class Writer < Translate
     writer.read_write(writer.english, writer.braille)
     writer.welcome_message(ARGV[1])
   end
-end 
+end
