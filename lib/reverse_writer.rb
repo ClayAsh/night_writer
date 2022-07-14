@@ -21,13 +21,13 @@ class ReverseWriter < ReverseTranslate
     return character_count
   end
 
-  def welcome_message(file_path)
+  def welcome_message
     p "Created #{@english} containing #{character_counter(@english)} characters."
   end
 
   def start
-    reverse_writer = ReverseWriter.new('braille.txt', 'english.txt')
+    reverse_writer = ReverseWriter.new(ARGV[0], ARGV[1])
     reverse_writer.read_write(reverse_writer.english, reverse_writer.braille)
-    reverse_writer.welcome_message(ARGV[1])
+    reverse_writer.welcome_message
   end
-end 
+end

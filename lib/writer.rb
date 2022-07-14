@@ -22,13 +22,13 @@ class Writer < Translate
     return character_count
   end
 
-  def welcome_message(file_path)
+  def welcome_message
     p "Created #{@braille} containing #{character_counter(@english)} characters."
   end
 
   def start
-    writer = Writer.new('message.txt', 'braille.txt')
+    writer = Writer.new(ARGV[0], ARGV[1])
     writer.read_write(writer.english, writer.braille)
-    writer.welcome_message(ARGV[1])
+    writer.welcome_message
   end
 end
