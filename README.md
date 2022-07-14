@@ -22,6 +22,7 @@ Written in Ruby and interacted with via a text file, both are easy to use and hi
 
 <ul>
 <strong>For English to Braille:</strong>
+  
   <li>In your text editor, open message.txt</li>
   <li>Enter the text you would like translated into Braille in lowercase with no punctuation or special characters</li>
   <li>From the command line, run 'ruby ./lib/night_writer.rb message.txt braille.txt' </li>
