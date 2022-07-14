@@ -1,6 +1,6 @@
 
 # Night Writer
-<video controls autoplay>
+<video >
 <source src='https://user-images.githubusercontent.com/99059063/179100020-cc9b639d-3710-4cf7-bdec-fb716dc6e94a.mp4' type="video/mp4">
 </video>
 
